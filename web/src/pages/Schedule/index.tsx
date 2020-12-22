@@ -52,6 +52,9 @@ const Schedule: React.FC = () => {
                 <label htmlFor="class-type-select">Tipo de aula</label>
 
                 <Select id="class-type-select" icon={FiBook}>
+                  <option selected disabled>
+                    Escolha um tipo
+                  </option>
                   <option value="UnitClass">Unit Class</option>
                   <option value="StarterConversation">
                     Starter Conversation

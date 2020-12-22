@@ -74,7 +74,7 @@ export const InputGroup = styled.div`
   > div {
     width: 100%;
     margin: 0.4rem;
-    
+
     label {
       display: block;
       margin-bottom: 0.4rem;
@@ -105,6 +105,14 @@ export const ClassContainer = styled.div`
   border: solid #eee 1px;
 
   margin: 1rem;
+
+  /* transition: 5s; */
+  transition: box-shadow 0.25s;
+
+  &:hover {
+    /* transform: scale(1.025); */
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
+  }
 
   & + div {
     /* margin-top: 2rem; */

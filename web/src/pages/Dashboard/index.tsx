@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { FiChevronRight, FiSearch, FiUser } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Button from '../../components/Button';
 
 import Header from '../../components/Header';
@@ -9,6 +9,12 @@ import Input from '../../components/Input';
 import { Container, TopContent, Students } from './styles';
 
 const Dashboard: React.FC = () => {
+  const history = useHistory();
+
+  const handleNavigateToNewStudent = useCallback(() => {
+    history.push('new-student');
+  }, [history]);
+
   return (
     <>
       <Header />
@@ -20,7 +26,7 @@ const Dashboard: React.FC = () => {
             <Input icon={FiSearch} placeholder="Digite para filtrar" />
           </div>
 
-          <Button>Novo aluno</Button>
+          <Button onClick={handleNavigateToNewStudent}>Novo aluno</Button>
         </TopContent>
 
         <Students>

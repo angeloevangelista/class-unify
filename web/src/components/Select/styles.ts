@@ -16,9 +16,19 @@ export const SelectElement = styled.select`
   width: 100%;
   padding: 0 1rem;
 
+  font-size: 1.8rem;
+
   border: 0;
   outline-style: none;
   background: transparent;
 
   color: #002257;
+
+  option {
+    margin: 2rem;
+
+    & + option {
+      margin-top: 1rem;
+    }
+  }
 `;

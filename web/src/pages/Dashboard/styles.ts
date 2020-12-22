@@ -22,6 +22,10 @@ export const TopContent = styled.div`
     display: grid;
     grid-template-columns: 1fr 2fr;
   }
+
+  button {
+    margin: 1rem 0;
+  }
 `;
 
 export const Students = styled.div`

@@ -11,7 +11,7 @@ export const Container = styled.button`
   border: 0;
   border-radius: 0.4rem;
 
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   font-weight: bold;
 
   color: #fff;
