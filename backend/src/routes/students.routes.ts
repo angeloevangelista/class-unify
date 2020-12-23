@@ -18,4 +18,14 @@ studentsRouter.patch('/:student_id/links', linksController.update);
 studentsRouter.get('/:student_id/schedule', scheduleController.index);
 studentsRouter.post('/:student_id/schedule', scheduleController.create);
 
+studentsRouter.put(
+  '/:student_id/schedule/:class_id',
+  scheduleController.update,
+);
+
+studentsRouter.delete(
+  '/:student_id/schedule/:class_id',
+  scheduleController.destroy,
+);
+
 export default studentsRouter;

@@ -14,6 +14,7 @@ class StudentsController {
       'name',
       'email',
       'grade',
+      'classes',
     ]);
 
     return response.json(new ResultView(students));
