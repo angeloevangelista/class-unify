@@ -1,7 +1,11 @@
 import { darken } from 'polished';
 import styled from 'styled-components';
 
-export const Container = styled.button`
+interface IContainerProps {
+  cancellationButton: boolean;
+}
+
+export const Container = styled.button<IContainerProps>`
   padding: 1rem;
 
   display: flex;
@@ -15,12 +19,16 @@ export const Container = styled.button`
   font-weight: bold;
 
   color: #fff;
-  background-color: #003180;
+  background-color: ${(props) =>
+    props.cancellationButton ? '#a9322c' : '#003180'};
 
   transition: color 0.25s;
   transition: background-color 0.25s;
 
   &:hover {
-    background-color: ${darken(0.1, '#003180')};
+    background-color: ${(props) =>
+      props.cancellationButton
+        ? darken(0.1, '#a9322c')
+        : darken(0.1, '#003180')};
   }
 `;

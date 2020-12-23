@@ -10,7 +10,7 @@ export const Container = styled.div`
   margin: 2rem auto 0 auto;
 `;
 
-export const TopContent = styled.div`
+export const TopBar = styled.div`
   width: 100%;
 
   display: flex;

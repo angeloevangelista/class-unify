@@ -8,9 +8,22 @@ export const Container = styled.div`
 
   padding: 0 2rem;
   margin: 2rem auto 0 auto;
+
+  > section {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 900px) {
+    > section {
+      display: flex;
+      flex-direction: column;
+    }
+  }
 `;
 
-export const TopContent = styled.div`
+export const TopBar = styled.div`
   width: 100%;
 
   display: flex;
@@ -43,8 +56,8 @@ export const TopContent = styled.div`
 `;
 
 export const ClassForm = styled.form`
+  width: 100%;
   margin-top: 4rem;
-  max-width: 600px;
 
   padding: 2rem;
 
@@ -59,8 +72,60 @@ export const ClassForm = styled.form`
     margin: 1rem 0;
   }
 
-  button {
-    margin-left: auto;
+  > div:last-child {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+
+    button {
+    }
+  }
+`;
+
+export const InfoContainer = styled.div`
+  height: fit-content;
+  width: 100%;
+  margin-top: 4rem;
+
+  padding: 2rem;
+
+  border-radius: 0.4rem;
+  border: solid #eee 1px;
+
+  > strong {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  > div {
+    margin: 4rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+
+    > div {
+      display: flex;
+      align-items: center;
+
+      & + div {
+        margin-top: 0.8rem;
+      }
+
+      strong {
+        font-weight: 500;
+        margin-right: 0.4rem;
+      }
+
+      span {
+        color: #404040;
+      }
+
+      svg {
+        cursor: pointer;
+        margin-left: 1rem;
+      }
+    }
   }
 `;
 
@@ -83,19 +148,20 @@ export const InputGroup = styled.div`
 `;
 
 export const Classes = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+  grid-gap: 1rem;
+  /* flex-wrap: wrap; */
 
   margin: 4rem 0;
 `;
 
 export const ClassContainer = styled.div`
-  max-width: 500px;
+  /* max-width: 480px; */
   display: flex;
   align-items: center;
+  justify-content: space-between;
   flex: 1 1 500px;
-
-  /* flex-wrap: wrap-reverse; */
 
   text-decoration: none;
   background: #fff;
@@ -103,8 +169,6 @@ export const ClassContainer = styled.div`
   padding: 0.8rem 0;
   border-radius: 0.4rem;
   border: solid #eee 1px;
-
-  margin: 1rem;
 
   /* transition: 5s; */
   transition: box-shadow 0.25s;
@@ -159,7 +223,7 @@ export const ClassContainer = styled.div`
 export const ClassActions = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-end;
 
   button {

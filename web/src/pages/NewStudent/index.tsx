@@ -7,7 +7,7 @@ import Header from '../../components/Header';
 import Input from '../../components/Input';
 import Select from '../../components/Select';
 
-import { Container, TopContent, StudentForm, InputGroup } from './styles';
+import { Container, TopBar, StudentForm, InputGroup } from './styles';
 
 const NewStudent: React.FC = () => {
   const {
@@ -19,14 +19,14 @@ const NewStudent: React.FC = () => {
       <Header />
 
       <Container>
-        <TopContent>
+        <TopBar>
           <Link to="/">
             <FiArrowLeft size={24} />
             Voltar
           </Link>
 
           <h1>Novo aluno</h1>
-        </TopContent>
+        </TopBar>
 
         <StudentForm>
           <strong>Preencha os campos</strong>
