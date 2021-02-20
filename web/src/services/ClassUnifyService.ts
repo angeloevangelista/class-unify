@@ -96,6 +96,14 @@ class ClassUnifyService {
     return result.data;
   }
 
+  async getGrades(): Promise<IApiResponse<{ [key: string]: string }>> {
+    const result = await this.api.get<IApiResponse<{ [key: string]: string }>>(
+      `grades`,
+    );
+
+    return result.data;
+  }
+
   async getClassTypes(): Promise<IApiResponse<{ [key: string]: string }>> {
     const result = await this.api.get<IApiResponse<{ [key: string]: string }>>(
       `classes`,

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FiArrowLeft, FiMail, FiUser, FiBook } from 'react-icons/fi';
 import { Link, useRouteMatch } from 'react-router-dom';
 
@@ -6,6 +6,7 @@ import Button from '../../components/Button';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
 import Select from '../../components/Select';
+import ClassUnifyService from '../../services/ClassUnifyService';
 
 import { Container, TopBar, StudentForm, InputGroup } from './styles';
 
@@ -13,6 +14,17 @@ const NewStudent: React.FC = () => {
   const {
     params: { student_id },
   } = useRouteMatch<{ student_id: string }>();
+
+  const [grades, setGrades] = useState<{ [key: string]: string }>({});
+  const [grade, setGrade] = useState('default');
+
+  useEffect(() => {
+    const classUnifyService = ClassUnifyService.getInstance();
+
+    classUnifyService.getClassTypes().then((response) => {
+      setGrades(response.data);
+    });
+  }, []);
 
   return (
     <>
@@ -39,17 +51,23 @@ const NewStudent: React.FC = () => {
             <InputGroup>
               <Input icon={FiMail} placeholder="Email" type="email" />
             </InputGroup>
-            
+
             <InputGroup>
-              <Select icon={FiBook}>
-                <option selected disabled>
-                  Escolha um nível
+              <Select
+                id="class-type-select"
+                icon={FiBook}
+                value={grade}
+                onChange={(event) => setGrade(event.currentTarget.value)}
+              >
+                <option value="default" disabled>
+                  Selecione um nível
                 </option>
-                <option value="Starter">Starter</option>
-                <option value="Basic">Basic</option>
-                <option value="Inter">Intermediate</option>
-                <option value="Upper">Upper</option>
-                <option value="UpperPlus">Upper Plus</option>
+
+                {Object.keys(grades).map((gradeKey) => (
+                  <option key={gradeKey} value={gradeKey}>
+                    {grades[gradeKey]}
+                  </option>
+                ))}
               </Select>
             </InputGroup>
           </div>
